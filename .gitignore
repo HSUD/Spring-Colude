@@ -1,0 +1,5 @@
+/.idea
+/service-producer/target
+/service-consumer/target
+/server-eureka/.idea
+/server-eureka/target

@@ -1,0 +1,11 @@
+server:
+  port: 8883
+
+spring:
+  application:
+    name: service-consumer
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://dush:8881/eureka/

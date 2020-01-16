@@ -1,0 +1,19 @@
+server:
+   port: 8881
+
+#eureka
+eureka:
+   instance:
+      hostname: localhost
+   client:
+      #eureka false来表明自己是一个eureka server
+      registerWithEureka: false
+      fetchRegistry: false
+      serviceUrl:
+         #eureka 注册地址
+         defaultZone: http://loclhost:8881/eureka/
+
+#服务名称
+spring:
+   application:
+      name: server-eureka
