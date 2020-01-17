@@ -16,10 +16,18 @@ public class ProducerController {
     private ConsumerFeignService consumerFeignService;
 
     @Value("${server.port}")
-    String port;
+    private String port;
 
-    @GetMapping("/tohello")
+    @Value("${foo}")
+    String foo;
+
+    @GetMapping("tohello")
     public String tohello(@RequestParam String name) {
         return consumerFeignService.sayHiFromClientOne( name );
+    }
+
+    @GetMapping("foo")
+    public String getfoo() {
+        return foo;
     }
 }
