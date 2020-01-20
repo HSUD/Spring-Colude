@@ -5,29 +5,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/producer/")
-public class ProducerController {
+public class ConsumerController {
 
     @Autowired
     private ConsumerFeignService consumerFeignService;
 
     @Value("${server.port}")
-    private String port;
+    String port;
 
-    @Value("${foo}")
-    String foo;
+    @Value("${spring.application.name}")
+    String applicationName;
 
-    @GetMapping("tohello")
-    public String tohello(@RequestParam String name) {
-        return consumerFeignService.sayHiFromClientOne( name );
+
+
+    @GetMapping("getHello")
+    public String getHello() {
+        return applicationName +" "+ port + "  rpc==== >" +consumerFeignService.gethello();
     }
 
-    @GetMapping("foo")
-    public String getfoo() {
-        return foo;
-    }
 }
